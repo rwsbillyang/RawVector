@@ -1,29 +1,38 @@
-Android Drawable from raw vector xml 
+package com.github.rwsbillyang.vectorDemo;
 
-Android VectorDrawable only uses compiled binary vector xml,  when put them in res directory. 
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.PictureDrawable;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
 
-## Features
+import com.github.rwsbillyang.vector.RawVector;
+import com.github.rwsbillyang.vector.VectorXmlContent;
 
-- Zero dependency,  no android support library, androidx, 3rd dependencies.
-- Can modify color of vectors
-- Works with any InputStream, including internet connection.
+import java.io.IOException;
+import java.io.InputStream;
 
-## Usage
+public class MainActivity extends Activity {
+    private final static  String TAG = "RawVectorDemo";
 
-Add maven source in settings.gradle:
-```
-maven { url = uri("https://jitpack.io") }
-```
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-Add dependency:
-```
-dependencies {
-    implementation 'com.github.rwsbillyang:vector:1.0'
-}
-```
+        ImageView imageView = new ImageView(this);
 
-Demo Code:
-```
+        setContentView(imageView);
+
+        PictureDrawable drawable = loadRawVector(R.raw.svg_rg_balance);
+        if(drawable != null)
+            imageView.setImageDrawable(drawable);
+        else
+            imageView.setImageResource(R.drawable.ic_launcher);
+
+    }
+
+
     public PictureDrawable loadRawVector(int resId){
         //InputStream inputStream = getAssets().open("svg/svg_rg_balance.xml");
         InputStream inputStream = getResources().openRawResource(resId);
@@ -61,9 +70,4 @@ Demo Code:
         }
         return null;
     }
-```
-Notice: Android should NOT be Dark mode. 
-
-## Limitation
- Only support name, fillColor, pathData attributes in vector xml in current version.
-
+}

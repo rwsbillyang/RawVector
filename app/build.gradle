@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.github.rwsbillyang.vectorDemo'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.github.rwsbillyang.vectorDemo"
+        minSdk 13
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 13 
+        versionCode 1
+        versionName "1.0"
+
+        //testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+//        vectorDrawables {
+//            useSupportLibrary true
+//        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':lib')
+}

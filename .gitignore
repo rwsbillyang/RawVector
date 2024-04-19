@@ -21,7 +21,6 @@ output.json
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
-
 # Keystore files
 *.jks
 *.keystore
@@ -31,3 +30,10 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+bin/
+gen/
+out/
+/app/release
+*.dex
+*.class
