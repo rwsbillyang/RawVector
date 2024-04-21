@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
             }
             inputStream.close();
         } catch (IOException e) {
-            Log.w(TAG, "fallback use png: open svg IOException=" + e.getMessage());
+            Log.w(TAG, "open svg IOException=" + e.getMessage());
             e.printStackTrace();
         }
         return null;

@@ -10,7 +10,7 @@ Android VectorDrawable only uses compiled binary vector xml,  when put them in r
 - Zero dependency, not need any dependencies such as android support library, androidx, 3rd libs.
 - Works with any InputStream, including internet connection.
 - Can modify color of vectors：
-  ![Original](screen_snapshot/original.jpg =200x)  Modify Color ->  ![After Modify Color](screen_snapshot/modify_color.jpg =200x)
+  ![Original](https://github.com/rwsbillyang/vector/blob/main/screen_snapshot/original.jpg)  Modify Color ->  ![After Modify Color](https://github.com/rwsbillyang/vector/blob/main/screen_snapshot/modify_color.jpg)
 
 ## 2. Usage
 
@@ -60,7 +60,7 @@ Demo Code:
             }
             inputStream.close();
         } catch (IOException e) {
-            Log.w(TAG, "fallback use png: open svg IOException=" + e.getMessage());
+            Log.w(TAG, "open svg IOException=" + e.getMessage());
             e.printStackTrace();
         }
         return null;
