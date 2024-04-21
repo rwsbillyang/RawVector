@@ -1,14 +1,18 @@
-Android Drawable from raw vector xml 
+Android Drawable from raw vector xml
 
-Android VectorDrawable only uses compiled binary vector xml,  when put them in res directory. 
+Android VectorDrawable only uses compiled binary vector xml,  when put them in res directory.
 
-## Features
 
-- Zero dependency,  no android support library, androidx, 3rd dependencies.
-- Can modify color of vectors
+
+
+## 1. Features
+
+- Zero dependency, not need any dependencies such as android support library, androidx, 3rd libs.
 - Works with any InputStream, including internet connection.
+- Can modify color of vectors：
+  ![Original](screen_snapshot/original.jpg =200x)  Modify Color ->  ![After Modify Color](screen_snapshot/modify_color.jpg =200x)
 
-## Usage
+## 2. Usage
 
 Add maven source in settings.gradle:
 ```
@@ -16,14 +20,14 @@ maven { url = uri("https://jitpack.io") }
 ```
 
 Add dependency:
-```
+```gradle
 dependencies {
     implementation 'com.github.rwsbillyang:vector:1.0'
 }
 ```
 
 Demo Code:
-```
+```java
     public PictureDrawable loadRawVector(int resId){
         //InputStream inputStream = getAssets().open("svg/svg_rg_balance.xml");
         InputStream inputStream = getResources().openRawResource(resId);
@@ -62,8 +66,8 @@ Demo Code:
         return null;
     }
 ```
-Notice: Android should NOT be Dark mode. 
+Notice: Android should NOT be Dark mode.
 
-## Limitation
- Only support name, fillColor, pathData attributes in vector xml in current version.
+## 3. Limitation
+Only support name, fillColor, pathData attributes in vector xml in current version.
 
